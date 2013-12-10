@@ -1,6 +1,10 @@
+.metadata/*
+Servers/*
+RemoteSystemsTempFiles/*
+*/target/*
+*/.project
+*/.settings/*
 *.class
-
-# Package Files #
 *.jar
 *.war
 *.ear

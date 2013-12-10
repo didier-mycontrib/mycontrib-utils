@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>org.mycontrib</groupId>
+  <artifactId>mycontrib-org</artifactId>  
+  <version>1.0</version>
+  
+  <name>mycontrib-org</name>
+  <url>http://www.mycontrib.org</url>
+  <packaging>pom</packaging>
+  
+  <repositories>
+  
+  <repository>
+  	 <id>mycontrib-org</id>
+  	 <url>http://www.mycontrib.org/maven-public-repository</url>
+  </repository>
+  
+  </repositories>
+
+    
+   <!-- nb: tant que pas de referentiel maven partage hyper stable et fiable (securise , toujours accessible) 
+      utilisation d'un referentiel local (specifique à localhost) 
+   -->  
+   <distributionManagement>
+  <repository>
+    <id>mycontrib-org</id>
+    <url>http://localhost:8484/nexus/content/repositories/mycontrib-org</url>
+  </repository>
+    <snapshotRepository>
+    <id>snapshots</id>
+    <url>http://localhost:8484/nexus/content/repositories/snapshots</url>
+  </snapshotRepository>
+</distributionManagement>
+ 
+  
+  <properties>   					
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- or UTF-8 or ... -->
+ </properties>
+  
+  
+</project>
+

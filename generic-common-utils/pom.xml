@@ -1,0 +1,19 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <!-- nb: tant que pas de referentiel maven hyper stable et fiable (securise , toujours accessible) 
+      pas d'url de referentiel dans le pom parent mais configuration specifique a la machine dans settings.xml -->
+  <parent>
+    <groupId>org.mycontrib</groupId>
+    <artifactId>mycontrib-java</artifactId>
+    <version>1.0</version>
+  </parent>
+  <groupId>org.mycontrib.generic</groupId>
+  <artifactId>generic-common-utils</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <description>common utils (web+back)</description>
+  
+  <build>
+		<finalName>generic-common-utils</finalName>
+	</build>
+  
+</project>

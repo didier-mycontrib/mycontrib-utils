@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>org.mycontrib</groupId>
+  <artifactId>mycontrib-org</artifactId>  
+  <version>1.0</version>
+  
+  <name>mycontrib-org</name>
+  <url>http://www.mycontrib.org</url>
+  <packaging>pom</packaging>
+
+<!--
+   <parent>
+    <groupId>org.mycontrib</groupId>
+    <artifactId>mycontrib-org</artifactId>  
+    <version>1.0</version>
+  </parent>
+ --> 
+    
+  
+  <distributionManagement>
+  <repository>
+    <id>mycontrib</id>
+    <url>http://www.mycontrib.org:8484/nexus/content/repositories/mycontrib</url>
+  </repository>
+    <snapshotRepository>
+    <id>snapshots</id>
+    <url>http://localhost:8484/nexus/content/repositories/snapshots</url>
+  </snapshotRepository>
+</distributionManagement>
+  
+  <repositories>
+	    <!-- specific jboss repositories needed for hibernate , richfaces , ... -->
+
+		<repository>
+			<id>jboss.org</id>
+			<url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url> 
+		</repository>
+		
+     <repository>
+          <id>maven2-repository.dev.java.net</id>
+          <name>Java.Net Maven2 Repository, hosts the javaee-api dependency</name>
+          <url>http://download.java.net/maven/2</url>
+    </repository>
+
+	
+  <repository>
+    <id>mycontrib</id>
+    <url>http://www.mycontrib.org:8484/nexus/content/repositories/mycontrib</url>
+  </repository>	
+    
+   <repository>
+      <id>public</id>
+      <name>Public Repositories</name>
+      <!-- <url>http://www.mycontrib.org:8484/nexus/content/groups/public/</url> -->
+      <url>http://localhost:8484/nexus/content/groups/public/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+		
+</repositories>
+  
+  <properties>   					
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- or UTF-8 or ... -->
+ </properties>
+  
+  
+</project>
+
