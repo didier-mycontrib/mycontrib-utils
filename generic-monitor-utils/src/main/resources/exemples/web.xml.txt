@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns="http://java.sun.com/xml/ns/javaee" 
+  xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>minibank-jpa</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+   
+  <context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/classes/springContextOfModule.xml,/WEB-INF/classes/wsEndpointSpringConf.xml</param-value>
+	</context-param>
+	
+	<listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+   
+	<context-param>
+		<param-name>jamonReportLocation</param-name>
+		<param-value>c:/temp/jamonReport.html</param-value>
+	</context-param> 
+  
+   <listener>
+        <listener-class>org.mycontrib.generic.profiler.MonitorReportRecorderListener</listener-class>
+    </listener>
+   
+   <!-- <listener>
+	    <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener> -->
+      
+  
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.jsf</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+<servlet-name>CXFServlet</servlet-name>
+<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>CXFServlet</servlet-name>
+<url-pattern>/pages/services/*</url-pattern> 
+</servlet-mapping>
+
+
+ <servlet>
+    <servlet-name>jamonadmin</servlet-name>
+    <jsp-file>/pilotage/profiling/jamonadmin.jsp</jsp-file>
+   </servlet>
+   <servlet>
+    <servlet-name>menu</servlet-name>
+    <jsp-file>/pilotage/profiling/menu.jsp</jsp-file>
+   </servlet>
+   <servlet>
+    <servlet-name>exceptions</servlet-name>
+    <jsp-file>/pilotage/profiling/exceptions.jsp</jsp-file>
+   </servlet>
+   <servlet>
+    <servlet-name>sql</servlet-name>
+    <jsp-file>/pilotage/profiling/sql.jsp</jsp-file>
+   </servlet>
+   <servlet>
+    <servlet-name>query</servlet-name>
+    <jsp-file>/pilotage/profiling/query.jsp</jsp-file>
+   </servlet>
+   <servlet>
+     <servlet-name>Mon</servlet-name>
+     <servlet-class>com.jamonapi.Mon</servlet-class>
+   </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>Mon</servlet-name>
+    <url-pattern>/Mon</url-pattern>
+  </servlet-mapping>
+
+
+  <filter>
+    <filter-name>JAMonFilter</filter-name>
+    <filter-class>com.jamonapi.JAMonFilter</filter-class>
+   </filter> <!-- pour recuperer des mesures de performances
+                  soit via MonitorFactory.getReport() ou ....
+                  soit via jamon.war (autre appli a installer dans tomcat) + jamon.jar dans tomcat/lib -->
+
+   <filter-mapping>
+    <filter-name>JAMonFilter</filter-name>
+    <url-pattern>*.jsf</url-pattern> <!-- ou /* ou ... -->
+  </filter-mapping>
+  
+</web-app>

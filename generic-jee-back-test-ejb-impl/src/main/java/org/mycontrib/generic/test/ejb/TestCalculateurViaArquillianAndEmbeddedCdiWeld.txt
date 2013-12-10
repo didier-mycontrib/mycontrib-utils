@@ -1,0 +1,37 @@
+package tp.myapp.test;
+
+import javax.inject.Inject;
+
+import junit.framework.Assert;
+
+import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import tp.myapp.test_arquillian.Calculateur;
+
+//NB: ce test utisant CDI/WELD (pour @Inject , @Named) nécessite le profil -P arquillian-weld-ee-embedded
+
+@RunWith(Arquillian.class)
+public class TestCalculateurViaArquillianAndEmbeddedCdiWeld {
+	
+	@Inject
+	private Calculateur calculateur;
+
+	@Deployment
+    public static JavaArchive createDeployment() {
+        return ShrinkWrap.create(JavaArchive.class)
+            .addClass(Calculateur.class)
+            .addAsManifestResource("META-INF/beans.xml", "beans.xml") ;        
+    }
+	
+	@Test
+	public void testAddition(){
+		int res=calculateur.addition(5, 6);
+		System.out.println("6+5="+res);
+		Assert.assertTrue(res==11);
+	}
+}

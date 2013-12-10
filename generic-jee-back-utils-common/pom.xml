@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.mycontrib</groupId>
+    <artifactId>mycontrib-java</artifactId>
+    <version>1.0</version>
+  </parent>
+  <groupId>org.mycontrib.generic</groupId>
+  <artifactId>generic-jee-back-utils-common</artifactId>
+  <version>1.0</version>
+  <description>partie implementation commune pour EJB et Spring , basee sur JPA, Dozer , inject , ...</description>
+  
+  <dependencies>
+  
+       <dependency>  
+               <groupId>org.mycontrib.generic</groupId>
+               <artifactId>generic-jee-back-utils-abstract</artifactId>
+               <version>1.0</version>  
+        </dependency>
+        
+  
+   <dependency> 
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>  <!-- avec entre autres JPA 2 -->
+      <version>6.0</version>
+      <scope>provided</scope>
+    </dependency>
+  
+  
+        <dependency>  
+             <groupId>javax.inject</groupId>  
+             <artifactId>javax.inject</artifactId>  
+             <version>1</version>  
+        </dependency>
+        
+        <dependency>
+    		<groupId>net.sf.dozer</groupId>
+   			 <artifactId>dozer</artifactId>
+   			 <version>5.3.1</version>
+   			<!--  <scope>runtime</scope> -->
+   			  <scope>compile</scope>
+		</dependency>
+		
+  </dependencies>
+  
+  
+</project>

@@ -1,0 +1,68 @@
+package tp.myapp.test;
+
+import javax.ejb.EJB;
+
+import junit.framework.Assert;
+
+import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.formatter.Formatters;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import tp.myapp.minibank.impl.persistence.dao.ClientDao;
+import tp.myapp.minibank.impl.persistence.entity._Client;
+	
+//NB: ce test utisant EmbeddedJoss7 nécessite le profil -P arquillian-jbossas-managed
+
+@RunWith(Arquillian.class)
+public class TestClientDaoViaArquillianAndEmbeddedJoss7 {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(TestClientDaoViaArquillianAndEmbeddedJoss7.class);
+	
+    @EJB
+	private ClientDao dao;
+	
+    @Deployment
+    public static JavaArchive createDeployment() {
+    	
+    	/*MavenDependencyResolver resolver = DependencyResolvers
+    		     .use(MavenDependencyResolver.class)
+    		     .loadMetadataFromPom("pom.xml");*/
+    	
+    	final JavaArchive jar = ShrinkWrap.create(JavaArchive.class /*,"minibank-jee6-ejb.jar"*/) 
+    			.addPackage("org.mycontrib.generic.persistence")
+    			.addPackage("tp.myapp.minibank.impl.persistence.entity")
+            	.addPackage("tp.myapp.minibank.impl.persistence.dao")
+            	.addPackage("tp.myapp.minibank.impl.persistence.dao.jpa")                                   
+    		    .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
+    		    .addAsManifestResource("META-INF/beans.xml", "beans.xml");
+    			    	              
+        LOGGER.info(jar.toString(Formatters.VERBOSE));
+ 
+        return jar;
+    	
+    }
+	
+	@Test
+	public void testGetClientByNum(){
+		try {
+			_Client cli = dao.getEntityById(1L);
+			System.out.println("client 1 = " + cli.toString());
+			Assert.assertTrue(cli.getNumero()==1L);
+		} catch (Exception e) {
+			e.printStackTrace();
+			Assert.fail(e.getMessage());
+		}
+	}
+	
+	
+	
+	
+	
+}
+

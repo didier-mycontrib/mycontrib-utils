@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.mycontrib</groupId>
+    <artifactId>mycontrib-java</artifactId>
+    <version>1.0</version>
+  </parent>
+  <groupId>org.mycontrib.generic</groupId>
+  <artifactId>generic-jee-back-test-common</artifactId>
+  <version>1.0</version>
+  <description>tests generics avec dbunit pour DAO , ...</description>
+  
+   <dependencies>
+     <dependency>
+         <groupId>org.mycontrib.generic</groupId>
+ 		  <!-- <artifactId>generic-jee-back-utils-abstract</artifactId> -->
+ 		  <artifactId>generic-jee-back-utils-common</artifactId>
+          <version>1.0</version>
+  		 <scope>compile</scope>
+     </dependency>
+     
+      
+     
+        <!-- javax / javaee-api / 6.0 / provided : interfaces seulement (pour compiler) : ok pour test avec jboss 7 ou ... -->
+    <dependency> 
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>6.0</version>
+      <scope>provided</scope>
+    </dependency>
+     
+     <dependency>
+    	<groupId>org.dbunit</groupId>
+    	<artifactId>dbunit</artifactId>
+    	<version>2.4.8</version>
+	</dependency>
+	
+	<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>compile</scope> <!-- override <scope>test</scope> -->
+		</dependency>
+	
+  </dependencies>
+
+  
+</project>

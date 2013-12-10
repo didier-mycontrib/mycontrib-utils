@@ -3,6 +3,7 @@ Servers/*
 RemoteSystemsTempFiles/*
 */target/*
 */.project
+*/.classpath
 */.settings/*
 *.class
 *.jar

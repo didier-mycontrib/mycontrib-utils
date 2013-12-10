@@ -14,8 +14,6 @@
      
   </dependencies>
   
-  <build>
-		<finalName>generic-exception</finalName>
-	</build>
+ 
   
 </project>
