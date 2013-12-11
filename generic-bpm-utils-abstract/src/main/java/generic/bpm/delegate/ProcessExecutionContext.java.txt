@@ -1,0 +1,8 @@
+package generic.bpm.delegate;
+
+public interface ProcessExecutionContext {
+	public Object doAction(String actionName,Object ... args);
+	public boolean eval(String conditionName,Object ... args);
+	//nb: cette interface n'est jamais utilisee avec Activiti 
+	// ???? avec Jbpm (jboss)
+}

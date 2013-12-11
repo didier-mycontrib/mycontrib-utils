@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.mycontrib</groupId>
+    <artifactId>mycontrib-java</artifactId>
+    <version>1.0</version>
+  </parent>
+  <groupId>org.mycontrib.generic</groupId>
+  <artifactId>generic-async-util</artifactId>
+  <version>1.0</version>
+  
+  <properties>
+     <org.apache.activemq.version>5.5.0</org.apache.activemq.version>  	        	    
+  </properties>
+  
+  <dependencies>
+  
+  <dependency>
+   <groupId>org.mycontrib.generic</groupId>
+  <artifactId>generic-bpm-utils-abstract</artifactId>
+  <version>1.0</version>
+  </dependency>
+  
+		  <dependency>
+  <groupId>org.apache.activemq</groupId>
+  <artifactId>activemq-core</artifactId>
+  <version>${org.apache.activemq.version}</version>
+</dependency>
+
+
+<!-- JMS 1.1 API =  indirect transitive dependency of activemq-core -->
+	
+  </dependencies>
+  
+
+</project>

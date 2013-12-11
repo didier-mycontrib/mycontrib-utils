@@ -1,0 +1,196 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.mycontrib</groupId>
+    <artifactId>mycontrib-java</artifactId>
+    <version>1.0</version>
+  </parent>
+  <groupId>org.mycontrib.generic</groupId>
+  <artifactId>generic-util-services-web</artifactId>
+  <version>1.0</version>
+  <packaging>war</packaging>
+  
+  <properties>
+   		<org.springframework.version>3.1.2.RELEASE</org.springframework.version>
+   		 <!-- <org.apache.cxf.version>2.7.0</org.apache.cxf.version> -->
+   		 <org.apache.cxf.version>2.5.5</org.apache.cxf.version>
+   		<!-- <org.apache.myfaces.version>2.1.5</org.apache.myfaces.version> -->   	    
+	</properties>
+  
+  <dependencies>
+  
+  <dependency>
+    <groupId>org.mycontrib.generic</groupId>
+    <artifactId>generic-util-services-abstract</artifactId>
+    <version>1.0</version>
+  </dependency>
+  
+   <dependency>
+   <groupId>javax.mail</groupId>
+    <artifactId>mail</artifactId>
+    <version>1.4.3</version>
+  </dependency>
+  
+ 	<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		
+		<!-- 
+		<dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>   
+            <version>1.0.0.GA</version>
+             <scope>compile</scope>                     
+        </dependency>
+		
+		<dependency>
+     		<groupId>org.hibernate</groupId>
+     		<artifactId>hibernate-validator</artifactId>
+     		<version>4.3.0.Final</version> 
+	   </dependency>
+-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>  
+             <groupId>javax.inject</groupId>  
+             <artifactId>javax.inject</artifactId>  
+             <version>1</version> 
+             <scope>compile</scope> 
+        </dependency>
+		<!--
+		<dependency>
+           <groupId>org.aspectj</groupId>
+           <artifactId>aspectjrt</artifactId>
+           <version>1.6.8</version>
+           <scope>runtime</scope>
+       </dependency> 
+       
+        <dependency>
+           <groupId>org.aspectj</groupId>
+           <artifactId>aspectjweaver</artifactId> 
+           <version>1.6.8</version>
+           <scope>runtime</scope>
+       </dependency>
+       -->
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+<!--
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>test</scope>
+		</dependency>
+		-->
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version> <!-- old: 1.1.2 not for jsf2 -->
+			<scope>compile</scope>
+		</dependency>
+
+       <!-- 
+		<dependency>
+			<groupId>org.apache.myfaces.core</groupId>
+			<artifactId>myfaces-api</artifactId>
+			<version>${org.apache.myfaces.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.myfaces.core</groupId>
+			<artifactId>myfaces-impl</artifactId>
+			<version>${org.apache.myfaces.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		 -->		
+		
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-api</artifactId>
+			<version>${org.apache.cxf.version}</version>
+			<scope>compile</scope>			
+		</dependency>
+      
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+			<version>${org.apache.cxf.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${org.apache.cxf.version}</version>
+			<exclusions>
+				<exclusion>
+                    <groupId>asm</groupId>
+                    <artifactId>asm</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.geronimo.specs</groupId>
+    				<artifactId>geronimo-javamail_1.4_spec</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		
+		
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${org.apache.cxf.version}</version>
+		</dependency>
+				
+  </dependencies>
+  
+  	
+	<build>
+	   <finalName>generic-util-services-web</finalName>
+	</build>
+  
+</project>

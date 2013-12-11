@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+ <parent>
+    <groupId>org.mycontrib</groupId>
+    <artifactId>mycontrib-java</artifactId>
+    <version>1.0</version>
+  </parent>
+  <groupId>org.mycontrib.generic</groupId>
+  <artifactId>generic-util-services-local</artifactId>
+  <version>1.0</version>
+  
+   <properties>
+   		<org.springframework.version>3.1.2.RELEASE</org.springframework.version>
+   		 <org.apache.cxf.version>2.5.5</org.apache.cxf.version>
+   	</properties>
+  
+  
+  <dependencies>
+  <dependency>
+    <groupId>org.mycontrib.generic</groupId>
+    <artifactId>generic-util-services-abstract</artifactId>
+    <version>1.0</version>
+  </dependency>
+  
+   <dependency>
+   <groupId>javax.mail</groupId>
+    <artifactId>mail</artifactId>
+    <version>1.4.3</version>
+  </dependency>
+  
+ 	
+    	<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-core</artifactId>
+    <version>${org.springframework.version}</version>
+ </dependency>
+ 
+ 	
+			
+    	 <dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-config</artifactId>
+    <version>${org.springframework.version}</version>
+  </dependency>
+  
+  <dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-api</artifactId>
+			<version>${org.apache.cxf.version}</version>
+			<scope>compile</scope>			
+		</dependency>
+ 
+ <dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${org.apache.cxf.version}</version>
+			<exclusions>
+				<exclusion>
+                    <groupId>asm</groupId>
+                    <artifactId>asm</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.geronimo.specs</groupId>
+    				<artifactId>geronimo-javamail_1.4_spec</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+    				<artifactId>spring-web</artifactId>
+				</exclusion>
+			  </exclusions>
+		</dependency>
+ 
+ <dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-ws-security</artifactId>
+			<version>${org.apache.cxf.version}</version>
+		</dependency>   
+  
+  </dependencies>
+</project>
